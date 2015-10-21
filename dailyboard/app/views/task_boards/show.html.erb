@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @username %>
+</p>
+
+<p>
+  <strong>Create time:</strong>
+  <%= @task_board.create_time %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task_board.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @task_board.content %>
+</p>
+
+<%= link_to 'Edit', edit_task_board_path(@task_board) %> |
+<%= link_to 'Back', task_boards_path %>
+
+<%= form_tag action = "" do%>
+	<input type="hidden" name="_method" value="delete" />
+	<input type= "submit" value = "删除"></input>
+<% end %>

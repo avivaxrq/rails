@@ -1,0 +1,19 @@
+zh-CN:
+activerecord:
+  attributes:
+  user:
+    name:"用户名"
+    password:"密码"
+    password_confirmation:"请再次输入"
+  errors:
+    models:
+      user:
+        attributes:
+          password:
+            confirmation:"密码不匹配"
+            too_short:"最短%{count}个字"
+          password_digest:
+            blank:"不能为空"
+          name:
+            blank:"请填写用户名"
+            taken:"用户名已存在"

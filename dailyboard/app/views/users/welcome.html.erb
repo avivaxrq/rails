@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>Daily board</title>
+</head>
+<div class="loop-wrapper" align="center" > <!-- Square container -->
+  <h2><span>Welcome to the</span> Daily board!</h2>
+  <div class="tree"></div>
+  <div class="tree"></div>
+  <div class="tree"></div>
+  <div class="rock"></div>
+  <div class="truck"></div>
+  <div class="wheels"></div>
+</div>
+  <% if @login_boolean == true%>
+    <div style = "margin-bottom:20px">
+    </div>
+    <div class="login_again" style = "font-size:30px">
+    <%= link_to "进入日报系统", task_boards_path %>
+    </div>
+  <% end %>
+</html>
+
+<!-- <div class="jumbotron" height="500px" align="center" style="font-size:100px">
+	<h2 class="welcome">Welcome</h2>
+</div> -->

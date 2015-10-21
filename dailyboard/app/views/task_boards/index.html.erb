@@ -1,0 +1,37 @@
+
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">My Task Boards</h1>
+
+<table table-layout = "fixed" style="word-break:break-all; word-wrap:break-word;border-radius:3px;border-color:#FFFFFF;" border ＝ "10px" border-color = #FFFFFF font-color=#FFFFFF>
+  <thead>
+    <tr style="padding-top:10px;padding-bottom:10px;">
+      <th class = "changetablepadding" width = "100px">User</th>
+      <th class = "changetablepadding" width = "100px">Create time</th>
+      <th class = "changetablepadding" width = "150px">Title</th>
+      <th class = "changetablepadding" width = "500px">Content</th>
+      <th class = "changetablepadding" width = "50px"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_boards.each do |task_board| %>
+      <tr class = "changecolor" style = "color:#FFFFFF" >
+        <!-- <td><%= task_board.user_id %></td> -->
+        <td><%= link_to task_board.get_user_name, task_board%></td>
+        <td><%= task_board.create_time %></td>
+        <td><%= task_board.title %></td>
+        <td><%= task_board.content %></td>
+        <!-- <td><%= link_to 'Show', task_board %></td> -->
+        <!-- <td><%= link_to 'Edit', edit_task_board_path(task_board) %></td> -->
+        <!-- <td><%= link_to 'Destroy', task_board, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <td width = "50px"><%= link_to 'Destroy', task_board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div align="center"><%= link_to 'New Task board', new_task_board_path %><div>

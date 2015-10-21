@@ -1,0 +1,18 @@
+<div class="single-form-container" align="center" style="margin-top:100px; color:#fff">
+	<div class= "boxed-group" id="login">
+		<h3>登陆 </h3>
+			<div class="boxed-group-inner">
+				<%= form_tag "/create_login_session" do%>
+					<dl class="form">
+						<dt><%= label_tag "用户名" %></dt>
+						<dd style="margin-left:-5px"><%= text_field_tag :name, params[:name] %></dd>
+					</dl>
+					<dl class="form">
+						<dt><%= label_tag "密码" %></dt>
+						<dd style="margin-left:-5px"><%= password_field_tag :password, params[:password] %></dd>
+					</dl>
+				<p><%= submit_tag "登陆", :class => "button primary"%></p>
+			<% end %>
+		</div>
+	</div>
+</div>

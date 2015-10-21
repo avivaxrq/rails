@@ -1,0 +1,31 @@
+<div class="single-form-container" style="margin:0 auto;display:block; color:#fff" >
+	<%= form_for @user do |f| %>
+		<div class= "boxed-group">
+			<h3 style="margin-top:100px; text-align:center" >注册 </h3>
+			<div class="boxed-group-inner" align="center" padding-top:10>
+				<% if @user.errors.any? %>
+					<div class="form_errored">填写信息有误</div>
+				<% end %>
+				<dl class="form">
+					<dt><label for="user_name">用户名</label></dt>
+					<dd style="margin-left:-5px"><%= f.text_field :name %></dd>
+					<% if @user.errors[:name].any? %>
+						<dd class="error"><%= @user.errors[:name][0]%></dd>
+					<% end %>
+				</dl>
+				<dl class="form">
+					<dt><label for="user_password">密码</label></dt>
+					<dd style="margin-left:-5px"><%= f.password_field :password %></dd>
+				</dl>
+				<% if @user.errors[:password].any? %>
+					<dd class="error"><%= @user.errors[:password][0]%></dd>
+				<% end %>
+				<dl class="form">
+					<dt><lable for="user_password_confirmation">密码确认</lable></dt>
+					<dd style="margin-left:-5px"><%= f.password_field :password_confirmation %></dd>
+				</dl>
+				<p><%= f.submit "注册", :class => "button primary"%></p>
+			</div>
+		</div>
+	<% end %>
+</div>

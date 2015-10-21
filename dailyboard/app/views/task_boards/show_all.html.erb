@@ -1,0 +1,55 @@
+<%= form_tag action = "show_all" do%>
+<p style = "display:inline">日期筛选</p>
+<select name="year">
+<option value = nil></option>
+<%2015.upto(2017).each do |i|%>
+<option value = <%=i.to_s%> <% if i.to_s == @year_select %> selected ="selected"<% end %>><%=i%></option>
+<% end %>
+</select>
+<p style = "display:inline">年</p>
+<select name="month">
+<option value = nil></option>
+<%1.upto(12).each do |i|%>
+<option value = <%=i.to_s%> <% if i.to_s == @month_select %> selected ="selected"<% end %>><%=i%></option>
+<% end %>
+</select>
+<p style = "display:inline">月</p>
+<select name="day">
+<option value = nil></option>
+<%1.upto(31).each do |i|%>
+<option value = <%=i.to_s%> <% if i.to_s == @day_select %> selected ="selected"<% end %>><%=i%></option>
+<% end %>
+</select>
+<p style = "display:inline">日</p>
+<select name="selected_user">
+  <option value = ""> </option>
+  <%= @user_lists.each do |user|%>
+  <option value = <%=user.id%>><%=user.name%></option>
+  <% end %>
+</select>
+
+<input type = "submit" name = "submit" >
+<% end %>
+
+
+<table table-layout = "fixed" style="word-break:break-all; word-wrap:break-word;border-radius:3px;border-color:#FFFFFF;" border ＝ "10px" border-color = #FFFFFF font-color=#FFFFFF>
+  <thead>
+    <tr style="padding-top:10px;padding-bottom:10px;">
+      <th class = "changetablepadding" width = "100px">User</th>
+      <th class = "changetablepadding" width = "100px">Create time</th>
+      <th class = "changetablepadding" width = "150px">Title</th>
+      <th class = "changetablepadding" width = "500px">Content</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @task_boards.each do |task_board| %>
+      <tr class = "changecolor" style = "color:#FFFFFF" >
+        <td><%= link_to task_board.get_user_name, task_board%></td>
+        <td><%= task_board.create_time %></td>
+        <td><%= task_board.title %></td>
+        <td><%= task_board.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

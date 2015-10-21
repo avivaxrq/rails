@@ -1,0 +1,30 @@
+<style>
+	li{
+		float:left;
+		padding-right: 70px;
+		list-style-type: none;
+	}
+	a:-webkit-any-link{
+		text-decoration:none !important;
+		color:#fff;
+		font-size: 14px;
+	}
+
+</style>
+<body>
+	<div class="header">
+		<div class="container clearfix">
+			<ul id="user-links">
+				<% if current_user %>
+					<li><%= link_to current_user.name, task_boards_path %></li>
+					<li><%= link_to "所有日报",task_boards_show_all_path%>
+					<li><%= link_to "退出", logout_path, method: "delete" %></li>
+				<% else %>
+					<li><%= link_to "首页",  root_path%></li>
+					<li><%= link_to "注册", signup_path %></li>
+					<li><%= link_to "登录", login_path %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</body>
